@@ -8,14 +8,19 @@ public class UIMenu : MonoBehaviour
 {
     public Text enteredText;
 
-    public void SetName()
+    public void SetName(string nameText)
     {
-        DataManager.Instance.playerName = enteredText.text;
+        DataManager.Instance.playerName = nameText;
     }
 
     public void StartGame()
     {
-        SetName();
+        SetName(enteredText.text);
         SceneManager.LoadScene(1);
+    }
+
+    public void ResetHighScore()
+    {
+        DataManager.Instance.ResetHighScores();
     }
 }
